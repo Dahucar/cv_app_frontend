@@ -16,14 +16,14 @@ export const ResumesItem = () => {
     return (
         <Card
             hoverable
-            style={{ width: 300, marginBottom: '15px' }}
+            style={{ width: 300, margin: '15px' }}
             cover={
                 <img
                     alt="example"
                     src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
                 />
             }
-        actions={ iconsList }
+            actions={ iconsList }
         >
         <Meta
             avatar={ <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" /> }

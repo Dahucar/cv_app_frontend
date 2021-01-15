@@ -27,7 +27,7 @@ export const DashboardScreen = () => {
       <Layout className="site-layout">
         <Header className="site-layout-background" style={{ padding: 0 }} >
           <Title level={3} style={{ color: 'white', lineHeight: '60px', marginLeft: '15px' }}>
-            Wellcome back Daniel HC!
+            Welcome back Daniel HC!
           </Title>
         </Header>
         <Content style={{ margin: '0 16px' }}>
@@ -41,7 +41,7 @@ export const DashboardScreen = () => {
             </Switch>
           </div>
         </Content>
-        <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+        <Footer style={{ textAlign: 'center', background: '#ccc' }}>By Dahucar &copy; 2021</Footer>
       </Layout>
     </Layout>
   );
