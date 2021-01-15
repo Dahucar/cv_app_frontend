@@ -1,18 +1,19 @@
 import React, { useState } from "react";
 import "../../index.css";
 import "antd/dist/antd.css";
-import { Layout, Menu,Typography } from "antd";
-import {
-  SettingOutlined,
-  CopyOutlined,
-  LogoutOutlined,
-} from "@ant-design/icons";
-import { Link } from "react-router-dom";
-import { ResumesList } from "./resumes/ResumesList";
+import { Layout, Typography } from "antd";
+import { Route, Switch } from "react-router-dom";
+
+// views component
+import { DashboardNavigate } from "./DashboardNavigate";
+import { ExperienceScreen } from "./views/ExperienceScreen";
+import { SkillsScreen } from "./views/SkillsScreen";
+import { EducationScreen } from "./views/EducationScreen";
+import { OtherScreen } from "./views/OtherScreen";
+import { ResumesScreen } from "./views/ResumesScreen";
 
 const { Title } = Typography;
 const { Header, Content, Footer, Sider } = Layout;
-const { SubMenu } = Menu;
 
 export const DashboardScreen = () => {
   const [state, setState] = useState(false);
@@ -21,20 +22,7 @@ export const DashboardScreen = () => {
     <Layout style={{ minHeight: '100vh' }}>
       <Sider collapsible collapsed={ state } onCollapse={handleCollapse}>
         <div className="logo" />
-        <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-          <Menu.Item key="1" icon={ <CopyOutlined /> }>
-            Resumes
-          </Menu.Item> 
-          <SubMenu key="sub1" icon={ <SettingOutlined /> } title="Customize">
-            <Menu.Item key="3">Skills</Menu.Item>
-            <Menu.Item key="4">Education</Menu.Item>
-            <Menu.Item key="5">Experience</Menu.Item>
-            <Menu.Item key="10">Other activities</Menu.Item>
-          </SubMenu>
-          <Menu.Item key="9" icon={<LogoutOutlined />}>
-            <Link to="/">Logout</Link>
-          </Menu.Item>
-        </Menu>
+        <DashboardNavigate/>
       </Sider>
       <Layout className="site-layout">
         <Header className="site-layout-background" style={{ padding: 0 }} >
@@ -44,7 +32,13 @@ export const DashboardScreen = () => {
         </Header>
         <Content style={{ margin: '0 16px' }}>
           <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
-            <ResumesList />
+            <Switch>
+              <Route exact path="/dashboard" component={ ResumesScreen } />
+              <Route exact path="/dashboard/experience" component={ ExperienceScreen } />
+              <Route exact path="/dashboard/skills" component={ SkillsScreen } />
+              <Route exact path="/dashboard/education" component={ EducationScreen } />
+              <Route exact path="/dashboard/other" component={ OtherScreen } />
+            </Switch>
           </div>
         </Content>
         <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
