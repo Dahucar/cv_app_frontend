@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import { DashboardScreen } from '../dashboard/DashboardScreen'; 
 import { WellcomeScreen } from '../landing/WellcomeScreen';
+import { LoginScreen } from '../public/LoginScreen';
 
 // TODO: REORGANIZAR LAS RUTAS DE /DASHBOARD
 // TODO: DEFINIR RUTAS PRIVADAS Y PUBLICAS
@@ -16,6 +17,7 @@ export const AppRouter = () => {
           <div>
             <Switch>
               <Route path="/dashboard" component={ DashboardScreen } />
+              <Route exact path="/login" component={ LoginScreen } />
               <Route exact path="/" component={ WellcomeScreen } />
               <Redirect to="/" />
             </Switch>

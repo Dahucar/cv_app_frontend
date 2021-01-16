@@ -5,6 +5,8 @@ export const NavigateScreen = () => {
     return (
         <div>
             <Link to="/dashboard">Dashboard</Link>
+            <br/>
+            <Link to="/login">Login</Link>
         </div>
     )
 }
