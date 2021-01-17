@@ -8,9 +8,15 @@ import {
   LogoutOutlined,
 } from "@ant-design/icons";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { logoutAction } from "../../actions/authActions";
 const { SubMenu } = Menu;
 
 export const DashboardNavigate = () => {
+  const dispatch = useDispatch();
+  const handlerLogout = () => {
+    dispatch( logoutAction() );
+  }
   return (
     <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
       <Menu.Item key="1" icon={<CopyOutlined />}>
@@ -31,7 +37,7 @@ export const DashboardNavigate = () => {
         </Menu.Item>
       </SubMenu>
       <Menu.Item key="9" icon={<LogoutOutlined />}>
-        <Link to="/">Logout</Link>
+        <Link to="/" onClick={ handlerLogout } >Logout</Link>
       </Menu.Item>
     </Menu>
   );

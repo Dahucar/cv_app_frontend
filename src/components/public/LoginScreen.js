@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { loginAction, registerAction } from "../../actions/authActions";
 import { useForm } from "../../hooks/useForm";
 import "./login.css";
@@ -7,8 +8,8 @@ import "./login.css";
 export const LoginScreen = () => {
   const dispatch = useDispatch();
   const [formLoginValues, handleLoginInputChanges] = useForm({
-    lEmail: '',
-    lPassword: '',
+    lEmail: 'danielhuenul90@gmail.com',
+    lPassword: '12345678',
   });
   const [formRegisterValues, handleRegisterInputChanges] = useForm({
     rNick: '',
@@ -24,7 +25,6 @@ export const LoginScreen = () => {
   const handleSumitLogin = ( e ) => {
     e.preventDefault();
     dispatch( loginAction( lEmail, lPassword) );
-    console.log( e );
   }
   
   const handleSumiRegister = ( e ) => {
@@ -34,6 +34,9 @@ export const LoginScreen = () => {
   
   return (
     <>
+      <div className="login">
+        <Link to="/" className="back">Volver</Link>
+      </div>
       <div className="login">
         <h1>Login to CV APP</h1>
         <form onSubmit={ handleSumitLogin } >

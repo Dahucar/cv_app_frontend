@@ -11,11 +11,13 @@ import { SkillsScreen } from "./views/SkillsScreen";
 import { EducationScreen } from "./views/EducationScreen";
 import { OtherScreen } from "./views/OtherScreen";
 import { ResumesScreen } from "./views/ResumesScreen";
+import { useSelector } from "react-redux";
 
 const { Title } = Typography;
 const { Header, Content, Footer, Sider } = Layout;
 
 export const DashboardScreen = () => {
+  const { user } = useSelector(state => state.auth);
   const [state, setState] = useState(false);
   const handleCollapse = () => { setState( !state ); };
   return (
@@ -27,7 +29,7 @@ export const DashboardScreen = () => {
       <Layout className="site-layout">
         <Header className="site-layout-background" style={{ padding: 0 }} >
           <Title level={3} style={{ color: 'white', lineHeight: '60px', marginLeft: '15px' }}>
-            Welcome back Daniel HC!
+            Welcome back { user.name }
           </Title>
         </Header>
         <Content style={{ margin: '0 16px' }}>
